@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'links.apps.LinksConfig',
     'django.contrib.admin',
+    # 'django.contrib.comments',
 ]
 
 MIDDLEWARE = [
