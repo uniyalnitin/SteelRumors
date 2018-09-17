@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
-from django.views.generic import RedirectView
+from django.views.generic import RedirectView, TemplateView
 
 
 admin.autodiscover()
@@ -24,9 +24,11 @@ admin.autodiscover()
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('links/',include('links.urls')),
-    path('', RedirectView.as_view(url='links/', permanent=True)),
+    path('', RedirectView.as_view(url='/links/', permanent=True)),
+    
 ]
 
 urlpatterns += [
     path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/register', include('registration.backends.simple.urls')),
 ]
